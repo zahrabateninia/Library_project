@@ -37,7 +37,11 @@ body {
     min-width:270px;
     margin: 20px auto; 
   }
-  
+  .aboutBook{
+    display: grid;
+    align-items: start;
+    justify-items: start;
+  }
   .bookCard label {
     display: block;
     margin-bottom: 8px;
