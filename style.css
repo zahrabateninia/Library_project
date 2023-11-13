@@ -1,11 +1,26 @@
 * {
     margin: 0;
     padding: 0;
-    --linear-gradient-color: linear-gradient(to right, #782ebd, #420b6a);
+    --linear-gradient-color: linear-gradient(to right, rgb(204, 213, 174), rgb(233, 237, 201));
     --red-color:  #FF4500;
     --green-color: #4CAF50;
     --white-color: #f0f0f0;
+    --light-brown-color: rgb(212, 163, 115);
+    --dark-green-color: rgb(40, 54, 24);
 
+}
+header{
+  display: flex;
+  gap: 2rem;
+  background-color:var(--light-brown-color);
+  padding: 2rem;
+}
+.material-icons.book-icon{
+  color:var(--dark-green-color) ;
+  font-size: 3rem;
+}
+header h1{
+  color: var(--dark-green-color);
 }
 body {
 
@@ -26,6 +41,11 @@ body {
     margin: 20px auto;
     padding: 10px 20px;
     font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid var(--dark-green-color);
+  }
+  .addBookBtn:hover{
+    background-color: rgb(221, 161, 94);
   }
   
   .bookCard {
