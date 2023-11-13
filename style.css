@@ -58,22 +58,23 @@ body {
   }
   
   .bookCard fieldset {
-    display: flex;
+    display: grid;
     justify-content: center;
-    flex-direction: column;
-    margin-bottom: 12px;
+    margin: 12px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
   fieldset div{
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
 
   }
   
+  
   .bookCard fieldset legend {
     font-weight: bold;
+    opacity: .77;
   }
   
   .bookCard button {
