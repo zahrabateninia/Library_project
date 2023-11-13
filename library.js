@@ -17,6 +17,15 @@ function addBookToLibrary() {
 
 // Add a “NEW BOOK” button that brings up a form allowing users 
 // to input the details for the new book: author, title, number of pages, whether it’s been read 
+const addBookBtn = document.querySelector(".addBookBtn");
+const dialog = document.querySelector("dialog");
+const removeBtn = document.querySelector("remove");
+const addBtn = document.querySelector("add");
+// show the dialog
+addBookBtn.addEventListener("click", () => {
+  dialog.showModal()
+});
+
 
 
 
