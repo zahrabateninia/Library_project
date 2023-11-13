@@ -1,13 +1,87 @@
 * {
     margin: 0;
     padding: 0;
+    --linear-gradient-color: linear-gradient(to right, #782ebd, #420b6a);
+    --red-color:  #FF4500;
+    --green-color: #4CAF50;
+    --white-color: #f0f0f0;
+
 }
 body {
 
-    background: linear-gradient(to right, #8A2BE2, #4B0082); 
+    background: var(--linear-gradient-color); 
     font-family: 'Helvetica Neue', sans-serif; 
     color: #ffffff; 
     text-align: center; 
-    height: 100vh;     
 }
 
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--white-color); 
+  }
+  
+  
+  .addBookBtn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  .bookCard {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    border: none;
+    max-width: 400px;
+    min-width:270px;
+    margin: 20px auto; 
+  }
+  
+  .bookCard label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    opacity: .8;
+  }
+  
+  .bookCard input,
+  .bookCard select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+  }
+  
+  .bookCard fieldset {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 12px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  fieldset div{
+    display: flex;
+    justify-content: center;
+
+  }
+  
+  .bookCard fieldset legend {
+    font-weight: bold;
+  }
+  
+  .bookCard button {
+    background-color: var(--green-color);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .bookCard button.remove {
+    background-color: var(--red-color); 
+  }
+  
