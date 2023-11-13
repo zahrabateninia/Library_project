@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+
+    background: linear-gradient(to right, #8A2BE2, #4B0082); 
+    font-family: 'Helvetica Neue', sans-serif; 
+    color: #ffffff; 
+    text-align: center; 
+    height: 100vh;     
+}
