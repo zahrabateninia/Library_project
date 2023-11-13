@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="library.js" defer></script>
+</head>
+<body>
+    <h1>Library</h1>
+    <button class="addBookBtn">+ New Book</button>
+    <!-- cards -->
+    <dialog open class="bookCard">
+        <form action="dialog">
+            <label for="bookTitle" required>Book title*</label>
+            <input type="text" id="bookTitle" name="bookTitle">
+            <label for="bookAuthor" required>Book author*</label>
+            <input type="text" id="bookAuthor" name="bookAuthor">
+            <label for="pages" required>Number of pages*</label>
+            <input type="number" id="pages" name="pages">
+            <fieldset>
+                <legend>Have you read this book?</legend>
+              
+                <div>
+                  <input type="checkbox" id="haveRead" name="haveRead"/>
+                  <label for="haveRead">Yes, I have read it.</label>
+                </div>
+              
+                <div>
+                  <input type="notRead" id="notRead" name="notRead" />
+                  <label for="notRead">Unfortunately, not yet!</label>
+                </div>
+              </fieldset>
+              <button class="remove">Remove</button>
+              <button class="add">Add</button>
+              
+        </form>
+    </dialog>
+</body>
+</html>
