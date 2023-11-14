@@ -19,8 +19,13 @@ function addBookToLibrary(){
           readStatus = this.value;
         }
       });
-  });
+    });
+    const newBook = new Book(bookTitle, bookAuthor, pages, readStatus);
+    myLibrary.push(newBook);
+    return newBook;
 }
+
+
 
 const addBookBtn = document.querySelector(".addBookBtn");
 const dialog = document.querySelector("dialog");
