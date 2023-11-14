@@ -62,3 +62,14 @@ function displayCard(book){
 
   bookContainer.appendChild(bookCard);
 }
+
+addBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  // Add book to library and display book card
+  const newBook = addBookToLibrary();
+  displayCard(newBook);
+  dialog.removeAttribute("open"); // Close the dialog after adding the book
+});
+
+
