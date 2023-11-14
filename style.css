@@ -109,4 +109,9 @@ body {
   .bookCard button.remove {
     background-color: var(--red-color); 
   }
+  .dialogButtons{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
   
