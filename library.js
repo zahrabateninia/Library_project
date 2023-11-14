@@ -25,8 +25,6 @@ function addBookToLibrary(){
     return newBook;
 }
 
-
-
 const addBookBtn = document.querySelector(".addBookBtn");
 const dialog = document.querySelector("dialog");
 const removeBtn = document.querySelector("remove");
@@ -40,19 +38,27 @@ addBtn.addEventListener('click', function(event){
   event.preventDefault;
 })
 
-// Creating a new card with the book information
-const newBookCard = document.createElement('div');
-newBookCard.classList.add("bookCard"); // add bookCard class for css style
+function displayCard(book){
+  const bookContainer = document.querySelector('bookContainer');
+  const bookCard = document.createElement('div');
+  bookCard.classList.add('bookCard');
 
-// function createAndAppendElement(parent, elementType, textContent) {
-//   const element = document.createElement(elementType);
-//   element.textContent = textContent;
-//   parent.appendChild(element);
-//   return element;
-// }
-// createAndAppendElement(newBookCard, "h2", bookTitle);
-// createAndAppendElement(newBookCard, "p", `Author: ${bookAuthor}`);
-// createAndAppendElement(newBookCard, "p", pages);
-// createAndAppendElement(newBookCard, "p", readStatus);
+  const title = document.createElement('h2');
+  title.textContent = bookTitle;
 
-// bookContainer.appendChild(newBookCard);
+  const author = document.createElement('p');
+  author.textContent = `Author: ${bookAuthor}`;
+
+  const pages = document.createElement('p');
+  pages.textContent = `Total pages: ${pages}`;
+
+  const readStatus = document.createElement('p');
+  readStatus.textContent = readStatus;
+
+  bookCard.appendChild(title);
+  bookCard.appendChild(author);
+  bookCard.appendChild(pages);
+  bookCard.appendChild(readStatus);
+
+  bookContainer.appendChild(bookCard);
+}
