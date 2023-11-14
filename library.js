@@ -27,19 +27,16 @@ function addBookToLibrary(){
 
 const addBookBtn = document.querySelector(".addBookBtn");
 const dialog = document.querySelector("dialog");
-const removeBtn = document.querySelector("remove");
-const addBtn = document.querySelector("add");
+const removeBtn = document.querySelector(".remove");
+const addBtn = document.querySelector(".add");
+console.log(addBtn)
 
 addBookBtn.addEventListener("click", () => {
   dialog.setAttribute("open", 'true');
 });
 
-addBtn.addEventListener('click', function(event){
-  event.preventDefault;
-})
-
 function displayCard(book){
-  const bookContainer = document.querySelector('bookContainer');
+  const booksContainer = document.querySelector('.booksContainer');
   const bookCard = document.createElement('div');
   bookCard.classList.add('bookCard');
 
@@ -60,16 +57,20 @@ function displayCard(book){
   bookCard.appendChild(pages);
   bookCard.appendChild(readStatus);
 
-  bookContainer.appendChild(bookCard);
+ booksContainer.appendChild(bookCard);
 }
 
-addBtn.addEventListener("click", function (event) {
-  event.preventDefault();
+addBtn.addEventListener("click", function(event) {
 
+  event.preventDefault();
   // Add book to library and display book card
   const newBook = addBookToLibrary();
   displayCard(newBook);
   dialog.removeAttribute("open"); // Close the dialog after adding the book
 });
 
-
+// Select the form element and prevent its default submission behavior
+const form = document.querySelector('form');
+form.addEventListener('submit', function (event) {
+  event.preventDefault(); // Prevent form submission
+});
