@@ -14,22 +14,20 @@ function addBookToLibrary(){
     const radios = document.querySelectorAll('input[name="readStatus"]');
     let readStatus = ''; 
     radios.forEach(function(radio) {
-      radio.addEventListener('change', function() {
-        if (this.checked) {
-          readStatus = this.value;
-        }
-      });
+      if (radio.checked) {
+        readStatus = radio.value;
+      }
     });
     const newBook = new Book(bookTitle, bookAuthor, pages, readStatus);
     myLibrary.push(newBook);
     return newBook;
-}
+};
+
 
 const addBookBtn = document.querySelector(".addBookBtn");
 const dialog = document.querySelector("dialog");
 const removeBtn = document.querySelector(".remove");
 const addBtn = document.querySelector(".add");
-console.log(addBtn)
 
 addBookBtn.addEventListener("click", () => {
   dialog.setAttribute("open", 'true');
