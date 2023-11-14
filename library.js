@@ -40,15 +40,19 @@ function displayCard(book){
 
   const title = document.createElement('h2');
   title.textContent = book.title;
+  title.style.color = "black";
 
   const author = document.createElement('p');
   author.textContent = `Author: ${book.author}`;
+  author.style.color = "black";
 
   const pages = document.createElement('p');
   pages.textContent = `Total pages: ${book.pages}`;
+  pages.style.color = "black";
 
   const readStatus = document.createElement('p');
   readStatus.textContent = book.readStatus;
+  readStatus.style.color = "black";
 
   bookCard.appendChild(title);
   bookCard.appendChild(author);
