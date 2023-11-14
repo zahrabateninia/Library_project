@@ -12,7 +12,20 @@ function Book() {
 const bookTitle = document.getElementById("bookTitle").value;
 const bookAuthor = document.getElementById("bookAuthor").value;
 const pages = document.getElementById("pages").value;
-const readStatus = document.querySelector('input[name="readStatus"]:checked').value;
+const radios = document.querySelectorAll('input[name="readStatus"]');
+let readStatus = ''; 
+
+radios.forEach(function(radio) {
+  radio.addEventListener('change', function() {
+    if (this.checked) {
+      readStatus = this.value;
+    }
+  });
+});
+
+
+
+
 
 
 const newBook={
