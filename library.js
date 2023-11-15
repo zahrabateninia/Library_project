@@ -37,10 +37,11 @@ function displayCard(book){
   const booksContainer = document.querySelector('.booksContainer');
   const bookCard = document.createElement('div');
   bookCard.classList.add('bookCard');
+  bookCard.style.backgroundImage = "linear-gradient(to right, rgb(188, 108, 37), rgb(221, 161, 94))"
 
   const title = document.createElement('h2');
   title.textContent = book.title;
-  title.style.color = "black";
+  title.style.color = "white";
 
   const author = document.createElement('p');
   author.textContent = `Author: ${book.author}`;
