@@ -5,7 +5,7 @@ function Book(title, author, pages, readStatus){
   this.author = author;
   this.pages = pages;
   this.readStatus = readStatus;
-}
+};
 
 function addBookToLibrary(){
     const bookTitle = document.getElementById("bookTitle").value;
@@ -27,7 +27,7 @@ function addBookToLibrary(){
 const addBookBtn = document.querySelector(".addBookBtn");
 const dialog = document.querySelector("dialog");
 const removeBtn = document.querySelector(".remove");
-const addBtn = document.querySelector(".add");
+const addBtn = document.querySelector("dialog .add");
 
 addBookBtn.addEventListener("click", () => {
   dialog.setAttribute("open", 'true');
@@ -37,7 +37,16 @@ function displayCard(book){
   const booksContainer = document.querySelector('.booksContainer');
   const bookCard = document.createElement('div');
   bookCard.classList.add('bookCard');
-  bookCard.style.backgroundImage = "linear-gradient(to right, rgb(188, 108, 37), rgb(221, 161, 94))"
+
+  bookCard.style.cssText = `
+  background-image: linear-gradient(to right, rgb(188, 108, 37),rgb(221, 161, 94));
+  display: flex;
+  flex-direction: column; 
+  gap: 1rem;"
+  padding :1rem;
+
+  `;
+
 
   const title = document.createElement('h2');
   title.textContent = book.title;
@@ -64,12 +73,20 @@ function displayCard(book){
 }
 
 addBtn.addEventListener("click", function(event) {
+  // Retrieve values from form fields
+  const bookTitle = document.getElementById("bookTitle").value;
+  const bookAuthor = document.getElementById("bookAuthor").value;
 
+  // Validate the form fields
+  if (!bookTitle || !bookAuthor) {
+    alert('Please enter both title and author of the book.');
+    return;
+  }
   event.preventDefault();
   // Add book to library and display book card
   const newBook = addBookToLibrary();
   displayCard(newBook);
-  dialog.removeAttribute("open"); // Close the dialog after adding the book
+  dialog.removeAttribute("open");
 });
 
 // Select the form element and prevent its default submission behavior
