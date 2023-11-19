@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     --linear-gradient-color: linear-gradient(to right, rgb(219, 224, 201), rgb(235, 217, 181));
+    --linear-gradient-orange-color: linear-gradient(to right, rgb(188, 108, 37),rgb(221, 161, 94));
     --red-color:  #FF4500;
     --green-color: #4CAF50;
     --white-color: #f0f0f0;
@@ -17,18 +18,18 @@
 header{
   display: flex;
   gap: 2rem;
-  background-color:var(--light-brown-color);
+  background-image: var(--linear-gradient-orange-color);
   padding: 2rem;
 }
 .material-icons.book-icon{
-  color:var(--dark-green-color) ;
+  color:var(--white-color) ;
   font-size: 3rem;
 }
 header h1{
   font-family: 'plante' , sans-serif;
   font-size: 3rem;
   font-weight: 300;
-  color: var(--dark-green-color);
+  color: var(--white-color);
 }
 body {
 

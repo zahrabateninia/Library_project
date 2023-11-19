@@ -39,11 +39,12 @@ function displayCard(book){
   bookCard.classList.add('bookCard');
 
   bookCard.style.cssText = `
-  background-image: linear-gradient(to right, rgb(188, 108, 37),rgb(221, 161, 94));
+  background-color: rgb(212, 163, 115);
   display: flex;
   flex-direction: column; 
   gap: 1rem;"
   padding :1rem;
+  width: 6rem;
 
   `;
 
@@ -51,18 +52,25 @@ function displayCard(book){
   const title = document.createElement('h2');
   title.textContent = book.title;
   title.style.color = "white";
+  title.style.paddingBottom = "1.3rem";
+  title.style.fontSize = "2.5rem"
 
   const author = document.createElement('p');
   author.textContent = `Author: ${book.author}`;
   author.style.color = "black";
+  author.style.fontSize = "1.3rem";
 
   const pages = document.createElement('p');
   pages.textContent = `Total pages: ${book.pages}`;
   pages.style.color = "black";
+  pages.style.fontSize = "1.3rem";
+
 
   const readStatus = document.createElement('p');
   readStatus.textContent = book.readStatus;
   readStatus.style.color = "black";
+  readStatus.style.fontSize = "1.3rem";
+
 
   bookCard.appendChild(title);
   bookCard.appendChild(author);
