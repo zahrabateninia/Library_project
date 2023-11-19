@@ -49,7 +49,6 @@ function displayCard(book){
 
   `;
 
-
   const title = document.createElement('h2');
   title.textContent = book.title;
   title.style.color = "white";

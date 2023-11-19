@@ -122,3 +122,9 @@ body {
     gap: 1rem;
   }
   
+  .booksContainer{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    
+
+  }
