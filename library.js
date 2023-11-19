@@ -25,6 +25,7 @@ function addBookToLibrary(){
 
 
 const addBookBtn = document.querySelector(".addBookBtn");
+const discardBtn = document.querySelector(".discard");
 const dialog = document.querySelector("dialog");
 const removeBtn = document.querySelector(".remove");
 const addBtn = document.querySelector("dialog .add");
@@ -96,6 +97,11 @@ addBtn.addEventListener("click", function(event) {
   displayCard(newBook);
   dialog.removeAttribute("open");
 });
+
+discardBtn.addEventListener('click', function(event){
+  event.preventDefault();
+  dialog.removeAttribute("open");
+})
 
 // Select the form element and prevent its default submission behavior
 const form = document.querySelector('form');
