@@ -123,11 +123,13 @@ body {
   }
   
   .booksContainer{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap ;
     
 
   }
+
  dialog.bookCard{
   background-color:rgb(239, 164, 100);
   box-shadow: 0 0 10px 1px gray;
