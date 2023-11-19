@@ -74,7 +74,6 @@ function makeBookCard(book){
   readStatus.style.color = "black";
   readStatus.style.fontSize = "1.3rem";
 
-  // delete and read buttons
   const deleteBtn = document.createElement("button");
   deleteBtn.classList.add('deleteBtn');
   const statusBtn = document.createElement("button");
@@ -82,6 +81,11 @@ function makeBookCard(book){
   deleteBtn.textContent = "delete";
   deleteBtn.style.backgroundColor = '#FF4500';
   statusBtn.textContent = "read";
+
+   // Set data attributes for the book's title and author
+   deleteBtn.setAttribute('data-title', book.title);
+   deleteBtn.setAttribute('data-author', book.author);
+   // delete and read buttons
 
   const buttonsContainer = document.createElement("div");
   buttonsContainer.style.display = "flex";
@@ -104,18 +108,22 @@ function makeBookCard(book){
 };
 
 function deleteBookCard(book){
+  // Find the index of the book in myLibrary array
   const index = myLibrary.indexOf(book);
-  if (index !== -1){ // if the index was valid
-    // remove it form the library array
+
+  if (index !== -1) { // If the index is valid
+    // Remove the book from the library array
     myLibrary.splice(index, 1);
-    // remove it form the UI
-    const bookCards = document.querySelectorAll(".bookCard");
-    bookCards.forEach( (card) => {
-      if (card.textContent.includes(book.title) && card.textContent.includes(book.author)){
-        card.remove();
-      }
-    })
-  }
+
+    // Find the delete button's parent (the book card) and remove it
+   const deleteButton = document.querySelector(`.deleteBtn[data-title="${book.title}"][data-author="${book.author}"]`);
+   if (deleteButton) {
+     const bookCard = deleteButton.closest('.bookCard');
+     if (bookCard) {
+       bookCard.remove(); // Remove the specific book card associated with the delete button
+     }
+   }
+ }
 
 };
 
