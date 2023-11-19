@@ -90,6 +90,10 @@ function makeBookCard(book){
   buttonsContainer.appendChild(deleteBtn);
   buttonsContainer.appendChild(statusBtn);
 
+  deleteBtn.addEventListener("click", ()=>{
+    deleteBookCard(book);
+  })
+
   bookCard.appendChild(title);
   bookCard.appendChild(author);
   bookCard.appendChild(pages);
@@ -97,6 +101,22 @@ function makeBookCard(book){
   bookCard.appendChild(buttonsContainer);
 
   return bookCard;
+};
+
+function deleteBookCard(book){
+  const index = myLibrary.indexOf(book);
+  if (index !== -1){ // if the index was valid
+    // remove it form the library array
+    myLibrary.splice(index, 1);
+    // remove it form the UI
+    const bookCards = document.querySelectorAll(".bookCard");
+    bookCards.forEach( (card) => {
+      if (card.textContent.includes(book.title) && card.textContent.includes(book.author)){
+        card.remove();
+      }
+    })
+  }
+
 };
 
 function displayCard(book){
@@ -133,8 +153,3 @@ const form = document.querySelector('form');
 form.addEventListener('submit', function (event) {
   event.preventDefault(); // Prevent form submission
 });
-
-
-deleteBtn.addEventListener('click', ()=>{
-  alert("boom");
-})
