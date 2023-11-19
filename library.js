@@ -62,7 +62,6 @@ function makeBookCard(book){
   const pages = document.createElement('p');
   if (!book.pages){
     pages.textContent = `Pages not included`;
-    pages.style.opacity = ".6";
   } else{
     pages.textContent = `Pages: ${book.pages}`;
   }
@@ -76,8 +75,10 @@ function makeBookCard(book){
   readStatus.style.fontSize = "1.3rem";
 
   // delete and read buttons
-  deleteBtn = document.createElement("button");
-  statusBtn = document.createElement("button");
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add('deleteBtn');
+  const statusBtn = document.createElement("button");
+  statusBtn.classList.add('statusBtn');
   deleteBtn.textContent = "delete";
   deleteBtn.style.backgroundColor = '#FF4500';
   statusBtn.textContent = "read";
@@ -133,3 +134,7 @@ form.addEventListener('submit', function (event) {
   event.preventDefault(); // Prevent form submission
 });
 
+
+deleteBtn.addEventListener('click', ()=>{
+  alert("boom");
+})
