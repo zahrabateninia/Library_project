@@ -60,7 +60,12 @@ function makeBookCard(book){
   author.style.fontSize = "1.3rem";
 
   const pages = document.createElement('p');
-  pages.textContent = `Pages: ${book.pages}`;
+  if (!book.pages){
+    pages.textContent = `Pages not included`;
+    pages.style.opacity = ".6";
+  } else{
+    pages.textContent = `Pages: ${book.pages}`;
+  }
   pages.style.color = "black";
   pages.style.fontSize = "1.3rem";
 
@@ -93,6 +98,7 @@ addBtn.addEventListener("click", function(event) {
     alert('Please enter both title and author of the book.');
     return;
   }
+
   event.preventDefault();
   // Add book to library and display book card
   const newBook = addBookToLibrary();
