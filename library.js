@@ -75,18 +75,34 @@ function makeBookCard(book){
   readStatus.style.color = "black";
   readStatus.style.fontSize = "1.3rem";
 
+  // delete and read buttons
+  deleteBtn = document.createElement("button");
+  statusBtn = document.createElement("button");
+  deleteBtn.textContent = "delete";
+  deleteBtn.style.backgroundColor = '#FF4500';
+  statusBtn.textContent = "read";
+
+  const buttonsContainer = document.createElement("div");
+  buttonsContainer.style.display = "flex";
+  buttonsContainer.style.gap = "1rem";
+  buttonsContainer.style.justifyContent = "center";
+  buttonsContainer.appendChild(deleteBtn);
+  buttonsContainer.appendChild(statusBtn);
+
   bookCard.appendChild(title);
   bookCard.appendChild(author);
   bookCard.appendChild(pages);
   bookCard.appendChild(readStatus);
+  bookCard.appendChild(buttonsContainer);
 
   return bookCard;
-}
+};
+
 function displayCard(book){
   const booksContainer = document.querySelector('.booksContainer');
   const bookCard = makeBookCard(book);
   booksContainer.appendChild(bookCard);
-}
+};
 
 addBtn.addEventListener("click", function(event) {
   // Retrieve values from form fields
@@ -116,3 +132,4 @@ const form = document.querySelector('form');
 form.addEventListener('submit', function (event) {
   event.preventDefault(); // Prevent form submission
 });
+
