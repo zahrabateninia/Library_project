@@ -34,8 +34,7 @@ addBookBtn.addEventListener("click", () => {
   dialog.setAttribute("open", 'true');
 });
 
-function displayCard(book){
-  const booksContainer = document.querySelector('.booksContainer');
+function makeBookCard(book){
   const bookCard = document.createElement('div');
   bookCard.classList.add('bookCard');
 
@@ -56,12 +55,12 @@ function displayCard(book){
   title.style.fontSize = "2.5rem"
 
   const author = document.createElement('p');
-  author.textContent = `Author: ${book.author}`;
+  author.textContent = `By ${book.author}`;
   author.style.color = "black";
   author.style.fontSize = "1.3rem";
 
   const pages = document.createElement('p');
-  pages.textContent = `Total pages: ${book.pages}`;
+  pages.textContent = `Pages: ${book.pages}`;
   pages.style.color = "black";
   pages.style.fontSize = "1.3rem";
 
@@ -71,13 +70,17 @@ function displayCard(book){
   readStatus.style.color = "black";
   readStatus.style.fontSize = "1.3rem";
 
-
   bookCard.appendChild(title);
   bookCard.appendChild(author);
   bookCard.appendChild(pages);
   bookCard.appendChild(readStatus);
 
- booksContainer.appendChild(bookCard);
+  return bookCard;
+}
+function displayCard(book){
+  const booksContainer = document.querySelector('.booksContainer');
+  const bookCard = makeBookCard(book);
+  booksContainer.appendChild(bookCard);
 }
 
 addBtn.addEventListener("click", function(event) {
