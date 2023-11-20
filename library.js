@@ -61,15 +61,7 @@ function createPages(book) {
   pages.style.color = "black";
   pages.style.fontSize = "1.3rem";
   return pages;
-}
-
-function createReadStatus(book) {
-  const readStatus = document.createElement('p');
-  readStatus.textContent = book.readStatus;
-  readStatus.style.color = "black";
-  readStatus.style.fontSize = "1.3rem";
-  return readStatus;
-}
+};
 
 function createDeleteButton(book) {
   const deleteBtn = document.createElement("button");
@@ -104,14 +96,13 @@ function makeBookCard(book){
   bookCard.appendChild(createTitle(book));
   bookCard.appendChild(createAuthor(book));
   bookCard.appendChild(createPages(book));
-  bookCard.appendChild(createReadStatus(book));
 
   const deleteBtn = createDeleteButton(book);
   const statusBtn = createStatusButton(book);
 
   const buttonsContainer = document.createElement("div");
   buttonsContainer.style.display = "flex";
-  buttonsContainer.style.gap = "1rem";
+  buttonsContainer.style.gap = "1.5rem";
   buttonsContainer.style.justifyContent = "center";
   buttonsContainer.appendChild(deleteBtn);
   buttonsContainer.appendChild(statusBtn);
@@ -152,6 +143,7 @@ function changeReadStatus(event){
  const statusBtn = event.target;
  if(statusBtn.textContent === 'Read'){
   statusBtn.textContent = 'Not read';
+
  }else{
   statusBtn.textContent = 'Read';
  }
