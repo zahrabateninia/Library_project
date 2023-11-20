@@ -81,10 +81,11 @@ function createDeleteButton(book) {
   return deleteBtn;
 }
 
-function createStatusButton() {
+function createStatusButton(book) {
   const statusBtn = document.createElement("button");
   statusBtn.classList.add('statusBtn');
-  statusBtn.textContent = "read";
+  statusBtn.textContent = "Read";
+  statusBtn.setAttribute('data-status', book.readStatus);
   return statusBtn;
 }
 
@@ -106,7 +107,7 @@ function makeBookCard(book){
   bookCard.appendChild(createReadStatus(book));
 
   const deleteBtn = createDeleteButton(book);
-  const statusBtn = createStatusButton();
+  const statusBtn = createStatusButton(book);
 
   const buttonsContainer = document.createElement("div");
   buttonsContainer.style.display = "flex";
@@ -119,6 +120,9 @@ function makeBookCard(book){
     deleteBookCard(book);
   });
 
+  statusBtn.addEventListener('click', function(event){
+    changeReadStatus(event, book);
+  });
   bookCard.appendChild(buttonsContainer);
 
   return bookCard;
@@ -135,14 +139,22 @@ function deleteBookCard(book){
 
     // Find the delete button's parent (the book card) and remove it
    const deleteButton = document.querySelector(`.deleteBtn[data-title="${book.title}"][data-author="${book.author}"]`);
-   if (deleteButton) {
+   if (deleteButton) { // if the deleteButton is found
      const bookCard = deleteButton.closest('.bookCard');
      if (bookCard) {
        bookCard.remove(); // Remove the specific book card associated with the delete button
      }
    }
  }
+};
 
+function changeReadStatus(event){
+ const statusBtn = event.target;
+ if(statusBtn.textContent === 'Read'){
+  statusBtn.textContent = 'Not read';
+ }else{
+  statusBtn.textContent = 'Read';
+ }
 };
 
 function displayCard(book){
