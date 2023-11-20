@@ -34,31 +34,24 @@ addBookBtn.addEventListener("click", () => {
   dialog.setAttribute("open", 'true');
 });
 
-function makeBookCard(book){
-  const bookCard = document.createElement('div');
-  bookCard.classList.add('bookCard');
-
-  bookCard.style.cssText = `
-  background-color: rgb(212, 163, 115);
-  display: flex;
-  flex-direction: column; 
-  gap: 1rem;"
-  padding :1rem;
-  width: 6rem;
-
-  `;
-
+function createTitle(book) {
   const title = document.createElement('h2');
   title.textContent = book.title;
   title.style.color = "white";
   title.style.paddingBottom = "1.3rem";
-  title.style.fontSize = "2.5rem"
+  title.style.fontSize = "2.5rem";
+  return title;
+}
 
+function createAuthor(book) {
   const author = document.createElement('p');
   author.textContent = `By ${book.author}`;
   author.style.color = "black";
   author.style.fontSize = "1.3rem";
+  return author;
+}
 
+function createPages(book) {
   const pages = document.createElement('p');
   if (!book.pages){
     pages.textContent = `Pages not included`;
@@ -67,25 +60,53 @@ function makeBookCard(book){
   }
   pages.style.color = "black";
   pages.style.fontSize = "1.3rem";
+  return pages;
+}
 
-
+function createReadStatus(book) {
   const readStatus = document.createElement('p');
   readStatus.textContent = book.readStatus;
   readStatus.style.color = "black";
   readStatus.style.fontSize = "1.3rem";
+  return readStatus;
+}
 
+function createDeleteButton(book) {
   const deleteBtn = document.createElement("button");
   deleteBtn.classList.add('deleteBtn');
-  const statusBtn = document.createElement("button");
-  statusBtn.classList.add('statusBtn');
   deleteBtn.textContent = "delete";
   deleteBtn.style.backgroundColor = '#FF4500';
-  statusBtn.textContent = "read";
+  deleteBtn.setAttribute('data-title', book.title);
+  deleteBtn.setAttribute('data-author', book.author);
+  return deleteBtn;
+}
 
-   // Set data attributes for the book's title and author
-   deleteBtn.setAttribute('data-title', book.title);
-   deleteBtn.setAttribute('data-author', book.author);
-   // delete and read buttons
+function createStatusButton() {
+  const statusBtn = document.createElement("button");
+  statusBtn.classList.add('statusBtn');
+  statusBtn.textContent = "read";
+  return statusBtn;
+}
+
+function makeBookCard(book){
+  const bookCard = document.createElement('div');
+  bookCard.classList.add('bookCard');
+  bookCard.style.cssText = `
+    background-color: rgb(212, 163, 115);
+    display: flex;
+    flex-direction: column; 
+    gap: 1rem;
+    padding: 1rem;
+    width: 6rem;
+  `;
+
+  bookCard.appendChild(createTitle(book));
+  bookCard.appendChild(createAuthor(book));
+  bookCard.appendChild(createPages(book));
+  bookCard.appendChild(createReadStatus(book));
+
+  const deleteBtn = createDeleteButton(book);
+  const statusBtn = createStatusButton();
 
   const buttonsContainer = document.createElement("div");
   buttonsContainer.style.display = "flex";
@@ -94,18 +115,15 @@ function makeBookCard(book){
   buttonsContainer.appendChild(deleteBtn);
   buttonsContainer.appendChild(statusBtn);
 
-  deleteBtn.addEventListener("click", ()=>{
+  deleteBtn.addEventListener("click", () => {
     deleteBookCard(book);
-  })
+  });
 
-  bookCard.appendChild(title);
-  bookCard.appendChild(author);
-  bookCard.appendChild(pages);
-  bookCard.appendChild(readStatus);
   bookCard.appendChild(buttonsContainer);
 
   return bookCard;
-};
+}
+
 
 function deleteBookCard(book){
   // Find the index of the book in myLibrary array
