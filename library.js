@@ -32,6 +32,9 @@ const addBtn = document.querySelector("dialog .add");
 
 addBookBtn.addEventListener("click", () => {
   dialog.setAttribute("open", 'true');
+  // reset the form each time a new dialog opens
+  const form = document.querySelector('form');
+  form.reset();
 });
 
 function createTitle(book) {
