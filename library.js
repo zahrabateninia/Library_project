@@ -90,6 +90,7 @@ function makeBookCard(book){
     background-color: rgb(212, 163, 115);
     display: flex;
     flex-direction: column; 
+    justify-content: space-between;
     gap: 1rem;
     padding: 1rem;
     width: 6rem;
