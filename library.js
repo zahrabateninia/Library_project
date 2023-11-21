@@ -38,6 +38,8 @@ function createTitle(book) {
   const title = document.createElement('h2');
   title.textContent = book.title;
   title.style.color = "white";
+  title.style.textShadow = "1px 1px 3px rgba(0, 0, 0, 0.6)";
+  title.style.letterSpacing = '1px';
   title.style.paddingBottom = "1.3rem";
   title.style.fontSize = "2.5rem";
   return title;
