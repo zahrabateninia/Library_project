@@ -93,6 +93,7 @@ function makeBookCard(book){
     justify-content: space-between;
     gap: 1rem;
     padding: 1rem;
+    padding-top: 2rem;
     width: 6rem;
   `;
 
