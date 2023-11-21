@@ -50,14 +50,32 @@ body {
     border-radius: 6px;
     border: none;
     background-color: var(--dark-green-color);
+    margin-top: 2rem;
+    outline: none;
+    position: relative;
   }
-  .addBookBtn:hover{
-    background-color: rgb(221, 161, 94);
+
+  .addBookBtn::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border: 2px solid var(--dark-green-color);
+    border-radius: 6px;
+    z-index: -1; /* make it behind the button */
+    transition: top,left,bottom,right, 200ms ease-in-out;
+  }
+  .addBookBtn:hover::before,
+  .addBookBtn:focus::before{
+    top: calc(2px * -2);
+    bottom: calc(2px * -2);
+    right: calc(2px * -2);
+    left: calc(2px * -2);
   }
   
   .bookCard {
-    background-color: #fff;
-    padding: 25px;
     border-radius: 10px;
     border: none;
     max-width: 400px;
