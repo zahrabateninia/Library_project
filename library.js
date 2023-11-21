@@ -15,7 +15,7 @@ function addBookToLibrary(){
     let readStatus = ''; 
     radios.forEach(function(radio) {
       if (radio.checked) {
-        readStatus = radio.value;
+        readStatus = radio.value; // its value is either read or Not read
       }
     });
     const newBook = new Book(bookTitle, bookAuthor, pages, readStatus);
@@ -68,7 +68,7 @@ function createPages(book) {
 function createDeleteButton(book) {
   const deleteBtn = document.createElement("button");
   deleteBtn.classList.add('deleteBtn');
-  deleteBtn.textContent = "delete";
+  deleteBtn.textContent = "Delete";
   deleteBtn.style.backgroundColor = '#FF4500';
   deleteBtn.setAttribute('data-title', book.title);
   deleteBtn.setAttribute('data-author', book.author);
@@ -78,7 +78,14 @@ function createDeleteButton(book) {
 function createStatusButton(book) {
   const statusBtn = document.createElement("button");
   statusBtn.classList.add('statusBtn');
-  statusBtn.textContent = "Read";
+  // if the user haven't read the book the button text should be Not read, otherwise read.
+  console.log(book.readStatus);
+  if(book.readStatus === 'Read'){
+    statusBtn.textContent = "Read";
+  }else{
+    statusBtn.textContent = "Not read";
+  }
+    
   statusBtn.setAttribute('data-status', book.readStatus);
   return statusBtn;
 }
