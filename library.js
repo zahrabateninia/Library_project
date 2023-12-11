@@ -53,8 +53,23 @@ class Book {
 
   // Static method to delete book card
   static deleteBookCard(book) {
-    // ... logic to delete book card
-  }
+      // Find the index of the book in myLibrary array
+      const index = myLibrary.indexOf(book);
+
+      if (index !== -1) { // If the index is valid
+        // Remove the book from the library array
+        myLibrary.splice(index, 1);
+
+      // Find the delete button's parent (the book card) and remove it
+      const deleteButton = document.querySelector(`.deleteBtn[data-title="${book.title}"][data-author="${book.author}"]`);
+      if (deleteButton) { // if the deleteButton is found
+        const bookCard = deleteButton.closest('.bookCard');
+        if (bookCard) {
+          bookCard.remove(); // Remove the specific book card associated with the delete button
+        }
+      }
+    }
+  };
 
   // Static method to change read status
   static changeReadStatus(event) {
@@ -154,25 +169,6 @@ function createStatusButton(book) {
   return statusBtn;
 }
 
-
-function deleteBookCard(book){
-  // Find the index of the book in myLibrary array
-  const index = myLibrary.indexOf(book);
-
-  if (index !== -1) { // If the index is valid
-    // Remove the book from the library array
-    myLibrary.splice(index, 1);
-
-    // Find the delete button's parent (the book card) and remove it
-   const deleteButton = document.querySelector(`.deleteBtn[data-title="${book.title}"][data-author="${book.author}"]`);
-   if (deleteButton) { // if the deleteButton is found
-     const bookCard = deleteButton.closest('.bookCard');
-     if (bookCard) {
-       bookCard.remove(); // Remove the specific book card associated with the delete button
-     }
-   }
- }
-};
 
 function changeReadStatus(event){
  const statusBtn = event.target;
