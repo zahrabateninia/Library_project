@@ -1,12 +1,71 @@
 const myLibrary = []; 
 
 class Book {
+
   constructor(title, author, pages, readStatus){
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.readStatus = readStatus;
   }
+
+  // Static method to create book card
+  static makeBookCard(book) {
+      const bookCard = document.createElement('div');
+      bookCard.classList.add('bookCard');
+      bookCard.style.cssText = `
+        background-color: rgb(212, 163, 115);
+        display: flex;
+        flex-direction: column; 
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem;
+        padding-top: 2rem;
+        width: 6rem;
+      `;
+    
+      bookCard.appendChild(createTitle(book));
+      bookCard.appendChild(createAuthor(book));
+      bookCard.appendChild(createPages(book));
+    
+      const deleteBtn = createDeleteButton(book);
+      const statusBtn = createStatusButton(book);
+    
+      const buttonsContainer = document.createElement("div");
+      buttonsContainer.style.display = "flex";
+      buttonsContainer.style.gap = "1.5rem";
+      buttonsContainer.style.justifyContent = "center";
+      buttonsContainer.appendChild(deleteBtn);
+      buttonsContainer.appendChild(statusBtn);
+    
+      deleteBtn.addEventListener("click", () => {
+        deleteBookCard(book);
+      });
+    
+      statusBtn.addEventListener('click', function(event){
+        changeReadStatus(event, book);
+      });
+      bookCard.appendChild(buttonsContainer);
+    
+      return bookCard;
+    };
+    
+
+  // Static method to delete book card
+  static deleteBookCard(book) {
+    // ... logic to delete book card
+  }
+
+  // Static method to change read status
+  static changeReadStatus(event) {
+    // ... logic to change read status
+  }
+
+  // Static method to display book card
+  static displayCard(book) {
+    // ... logic to display book card
+  }
+
 };
 
 function addBookToLibrary(){
@@ -93,46 +152,6 @@ function createStatusButton(book) {
     
   statusBtn.setAttribute('data-status', book.readStatus);
   return statusBtn;
-}
-
-function makeBookCard(book){
-  const bookCard = document.createElement('div');
-  bookCard.classList.add('bookCard');
-  bookCard.style.cssText = `
-    background-color: rgb(212, 163, 115);
-    display: flex;
-    flex-direction: column; 
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1rem;
-    padding-top: 2rem;
-    width: 6rem;
-  `;
-
-  bookCard.appendChild(createTitle(book));
-  bookCard.appendChild(createAuthor(book));
-  bookCard.appendChild(createPages(book));
-
-  const deleteBtn = createDeleteButton(book);
-  const statusBtn = createStatusButton(book);
-
-  const buttonsContainer = document.createElement("div");
-  buttonsContainer.style.display = "flex";
-  buttonsContainer.style.gap = "1.5rem";
-  buttonsContainer.style.justifyContent = "center";
-  buttonsContainer.appendChild(deleteBtn);
-  buttonsContainer.appendChild(statusBtn);
-
-  deleteBtn.addEventListener("click", () => {
-    deleteBookCard(book);
-  });
-
-  statusBtn.addEventListener('click', function(event){
-    changeReadStatus(event, book);
-  });
-  bookCard.appendChild(buttonsContainer);
-
-  return bookCard;
 }
 
 
