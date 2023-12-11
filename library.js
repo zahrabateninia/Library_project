@@ -83,8 +83,10 @@ class Book {
   };
 
   // Static method to display book card
-  static displayCard(book) {
-    // ... logic to display book card
+  static displayCard(book) {  
+    const booksContainer = document.querySelector('.booksContainer');
+    const bookCard = makeBookCard(book);
+    booksContainer.appendChild(bookCard);
   }
 
 };
@@ -175,12 +177,6 @@ function createStatusButton(book) {
   return statusBtn;
 }
 
-
-function displayCard(book){
-  const booksContainer = document.querySelector('.booksContainer');
-  const bookCard = makeBookCard(book);
-  booksContainer.appendChild(bookCard);
-};
 
 addBtn.addEventListener("click", function(event) {
   // Retrieve values from form fields
