@@ -73,8 +73,14 @@ class Book {
 
   // Static method to change read status
   static changeReadStatus(event) {
-    // ... logic to change read status
-  }
+    const statusBtn = event.target;
+    if(statusBtn.textContent === 'Read'){
+     statusBtn.textContent = 'Not read';
+   
+    }else{
+     statusBtn.textContent = 'Read';
+    }
+  };
 
   // Static method to display book card
   static displayCard(book) {
@@ -169,16 +175,6 @@ function createStatusButton(book) {
   return statusBtn;
 }
 
-
-function changeReadStatus(event){
- const statusBtn = event.target;
- if(statusBtn.textContent === 'Read'){
-  statusBtn.textContent = 'Not read';
-
- }else{
-  statusBtn.textContent = 'Read';
- }
-};
 
 function displayCard(book){
   const booksContainer = document.querySelector('.booksContainer');
